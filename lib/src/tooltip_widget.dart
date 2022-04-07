@@ -181,6 +181,8 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
     }
     return space;
   }
+  
+  int rebounds = 0;
 
   @override
   void initState() {
@@ -192,9 +194,10 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
         if (status == AnimationStatus.completed) {
           _parentController.reverse();
         }
-        if (_parentController.isDismissed) {
+        if (_parentController.isDismissed && rebounds <= 3) {
           if (!widget.disableAnimation) {
             _parentController.forward();
+            rebounds++;
           }
         }
       });
