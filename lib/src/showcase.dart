@@ -299,6 +299,7 @@ class _ShowcaseState extends State<Showcase> {
                 disableAnimation: widget.disableAnimation,
                 animationDuration: widget.animationDuration,
                 onTop: widget.onTop,
+                curve: widget.curve,
               ),
             ],
           )
