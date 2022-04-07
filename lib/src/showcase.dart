@@ -50,6 +50,7 @@ class Showcase extends StatefulWidget {
   final Color showcaseBackgroundColor;
   final Color textColor;
   final bool showArrow;
+  final bool onTop;
   final double? height;
   final double? width;
   final Duration animationDuration;
@@ -80,6 +81,7 @@ class Showcase extends StatefulWidget {
     this.showcaseBackgroundColor = Colors.white,
     this.textColor = Colors.black,
     this.showArrow = true,
+    this.onTop = false,
     this.onTargetClick,
     this.disposeOnTap,
     this.animationDuration = const Duration(milliseconds: 2000),
@@ -130,6 +132,7 @@ class Showcase extends StatefulWidget {
     this.overlayPadding = EdgeInsets.zero,
     this.blurValue,
   })  : showArrow = false,
+        onTop = true,
         onToolTipClick = null,
         assert(overlayOpacity >= 0.0 && overlayOpacity <= 1.0,
             "overlay opacity must be between 0 and 1.");
