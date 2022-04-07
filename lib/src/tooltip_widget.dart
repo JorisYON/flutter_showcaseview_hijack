@@ -45,6 +45,7 @@ class ToolTipWidget extends StatefulWidget {
   final EdgeInsets? contentPadding;
   final Duration animationDuration;
   final bool disableAnimation;
+  final bool onTop;
 
   ToolTipWidget({
     required this.position,
@@ -63,6 +64,7 @@ class ToolTipWidget extends StatefulWidget {
     required this.onTooltipTap,
     required this.animationDuration,
     this.contentPadding = const EdgeInsets.symmetric(vertical: 8),
+    required this.onTop,
     required this.disableAnimation,
   });
 
@@ -92,6 +94,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
   }
 
   String findPositionForContent(Offset position) {
+    if(widget.onTop)return 'ABOVE';
     if (isCloseToTopOrBottom(position)) {
       return 'ABOVE';
     } else {
