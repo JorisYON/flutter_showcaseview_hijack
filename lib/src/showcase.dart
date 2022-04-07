@@ -87,7 +87,7 @@ class Showcase extends StatefulWidget {
     this.disableAnimation = false,
     this.contentPadding =
         const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-    this.onTop = false,
+    this.onTop,
     this.onToolTipClick,
     this.overlayPadding = EdgeInsets.zero,
     this.blurValue,
