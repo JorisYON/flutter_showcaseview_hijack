@@ -194,7 +194,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
         if (status == AnimationStatus.completed) {
           _parentController.reverse();
         }
-        if (_parentController.isDismissed && rebounds <= 3) {
+        if (_parentController.isDismissed && rebounds <= 1) {
           if (!widget.disableAnimation) {
             _parentController.forward();
             rebounds++;
