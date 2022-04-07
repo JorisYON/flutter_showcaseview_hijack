@@ -131,6 +131,7 @@ class Showcase extends StatefulWidget {
     this.contentPadding = const EdgeInsets.symmetric(vertical: 8),
     this.overlayPadding = EdgeInsets.zero,
     this.blurValue,
+    this.onTop = false,
   })  : showArrow = false,
         onToolTipClick = null,
         assert(overlayOpacity >= 0.0 && overlayOpacity <= 1.0,
