@@ -181,6 +181,8 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
     }
     return space;
   }
+  
+  int rebounds = 0;
 
   @override
   void initState() {
@@ -192,9 +194,10 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
         if (status == AnimationStatus.completed) {
           _parentController.reverse();
         }
-        if (_parentController.isDismissed) {
+        if (_parentController.isDismissed && rebounds <= 1) {
           if (!widget.disableAnimation) {
             _parentController.forward();
+            rebounds++;
           }
         }
       });
@@ -231,7 +234,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
         contentOffsetMultiplier.clamp(-1.0, 0.0);
 
     var paddingTop = isArrowUp ? 22.0 : 0.0;
-    var paddingBottom = isArrowUp ? 0.0 : 27.0;
+    var paddingBottom = isArrowUp ? 0.0 : 16.0;
 
     if (!widget.showArrow) {
       paddingTop = 10;
