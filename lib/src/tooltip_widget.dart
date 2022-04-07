@@ -46,6 +46,7 @@ class ToolTipWidget extends StatefulWidget {
   final Duration animationDuration;
   final bool disableAnimation;
   final bool onTop;
+  final Curve curve;
 
   ToolTipWidget({
     required this.position,
@@ -66,6 +67,7 @@ class ToolTipWidget extends StatefulWidget {
     this.contentPadding = const EdgeInsets.symmetric(vertical: 8),
     required this.onTop,
     required this.disableAnimation,
+    required this.curve,
   });
 
   @override
@@ -204,7 +206,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
 
     _curvedAnimation = CurvedAnimation(
       parent: _parentController,
-      curve: Curves.easeInOut,
+      curve: widget.curve,
     );
 
     if (!widget.disableAnimation) {

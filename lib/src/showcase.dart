@@ -59,6 +59,7 @@ class Showcase extends StatefulWidget {
   final bool? disposeOnTap;
   final bool disableAnimation;
   final EdgeInsets overlayPadding;
+  final Curve curve;
 
   /// Defines blur value.
   /// This will blur the background while displaying showcase.
@@ -86,6 +87,7 @@ class Showcase extends StatefulWidget {
     this.disposeOnTap,
     this.animationDuration = const Duration(milliseconds: 2000),
     this.disableAnimation = false,
+    this.curve = Curves.easeInOut,
     this.contentPadding =
         const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
     this.onToolTipClick,
@@ -131,6 +133,7 @@ class Showcase extends StatefulWidget {
     this.contentPadding = const EdgeInsets.symmetric(vertical: 8),
     this.overlayPadding = EdgeInsets.zero,
     this.blurValue,
+    this.curve = Curves.easeInOut,
   })  : showArrow = false,
         onTop = true,
         onToolTipClick = null,
