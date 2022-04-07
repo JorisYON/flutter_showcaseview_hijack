@@ -58,7 +58,7 @@ class Showcase extends StatefulWidget {
   final bool? disposeOnTap;
   final bool disableAnimation;
   final EdgeInsets overlayPadding;
-  final bool onTop;
+  final bool? onTop;
 
   /// Defines blur value.
   /// This will blur the background while displaying showcase.
