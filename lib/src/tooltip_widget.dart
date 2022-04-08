@@ -47,6 +47,7 @@ class ToolTipWidget extends StatefulWidget {
   final bool disableAnimation;
   final bool onTop;
   final Curve curve;
+  final int offsetDivider;
 
   ToolTipWidget({
     required this.position,
@@ -63,6 +64,7 @@ class ToolTipWidget extends StatefulWidget {
     required this.contentHeight,
     required this.contentWidth,
     required this.onTooltipTap,
+    required this.offsetDivider,
     required this.animationDuration,
     this.contentPadding = const EdgeInsets.symmetric(vertical: 8),
     required this.onTop,
@@ -255,7 +257,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
           translation: Offset(0.0, contentFractionalOffset as double),
           child: SlideTransition(
             position: Tween<Offset>(
-              begin: Offset(0.0, contentFractionalOffset / 10),
+              begin: Offset(0.0, contentFractionalOffset / widget.offsetDivider),
               end: Offset(0.0, 0.100),
             ).animate(_curvedAnimation),
             child: Material(

@@ -60,6 +60,7 @@ class Showcase extends StatefulWidget {
   final bool disableAnimation;
   final EdgeInsets overlayPadding;
   final Curve curve;
+  final int offsetDivider;
 
   /// Defines blur value.
   /// This will blur the background while displaying showcase.
@@ -88,6 +89,7 @@ class Showcase extends StatefulWidget {
     this.animationDuration = const Duration(milliseconds: 2000),
     this.disableAnimation = false,
     this.curve = Curves.easeInOut,
+    this.offsetDivider = 10,
     this.contentPadding =
         const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
     this.onToolTipClick,
@@ -128,6 +130,7 @@ class Showcase extends StatefulWidget {
     this.textColor = Colors.black,
     this.onTargetClick,
     this.disposeOnTap,
+    this.offsetDivider = 10,
     this.animationDuration = const Duration(milliseconds: 2000),
     this.disableAnimation = false,
     this.contentPadding = const EdgeInsets.symmetric(vertical: 8),
@@ -282,6 +285,7 @@ class _ShowcaseState extends State<Showcase> {
               ),
               ToolTipWidget(
                 position: position,
+                offsetDivider: widget.offsetDivider,
                 offset: offset,
                 screenSize: screenSize,
                 title: widget.title,
