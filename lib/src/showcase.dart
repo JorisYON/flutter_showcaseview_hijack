@@ -267,14 +267,14 @@ class _ShowcaseState extends State<Showcase> {
                             ),
                           ),
                         )
-                      : Container(
+                      : widget.overlayOpacity > 0 ? Container(
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height,
                           decoration: BoxDecoration(
                             color: widget.overlayColor
                                 .withOpacity(widget.overlayOpacity),
                           ),
-                        ),
+                        ):SizedBox.shrink(),
                 ),
               ),
               _TargetWidget(
