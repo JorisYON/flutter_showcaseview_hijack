@@ -47,6 +47,7 @@ class ToolTipWidget extends StatefulWidget {
   final bool disableAnimation;
   final bool onTop;
   final Curve curve;
+  final int offsetDivider;
 
   ToolTipWidget({
     required this.position,
@@ -63,6 +64,7 @@ class ToolTipWidget extends StatefulWidget {
     required this.contentHeight,
     required this.contentWidth,
     required this.onTooltipTap,
+    required this.offsetDivider,
     required this.animationDuration,
     this.contentPadding = const EdgeInsets.symmetric(vertical: 8),
     required this.onTop,
