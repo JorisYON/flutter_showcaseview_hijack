@@ -231,8 +231,8 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
     isArrowUp = contentOffsetMultiplier == 1.0;
 
     final contentY = isArrowUp
-        ? widget.position!.getBottom() + (contentOffsetMultiplier * widget.offsetDivider)
-        : widget.position!.getTop() + (contentOffsetMultiplier * widget.offsetDivider);
+        ? widget.position!.getBottom() + (contentOffsetMultiplier * 3)
+        : widget.position!.getTop() + (contentOffsetMultiplier * 3);
 
     final num contentFractionalOffset =
         contentOffsetMultiplier.clamp(-1.0, 0.0);
@@ -369,7 +369,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
         children: <Widget>[
           Positioned(
             left: _getSpace(),
-            top: contentY - 10,
+            top: contentY - 5,
             child: FractionalTranslation(
               translation: Offset(0.0, contentFractionalOffset as double),
               child: SlideTransition(
