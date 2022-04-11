@@ -314,6 +314,7 @@ class _ShowcaseState extends State<Showcase> {
 class _TargetWidget extends StatelessWidget {
   final Offset offset;
   final Size? size;
+
   final Animation<double>? widthAnimation;
   final VoidCallback? onTap;
   final ShapeBorder? shapeBorder;
