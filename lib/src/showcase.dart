@@ -48,6 +48,7 @@ class Showcase extends StatefulWidget {
   final double overlayOpacity;
   final Widget? container;
   final Color showcaseBackgroundColor;
+  final LinearGradient? showcaseBackgroundGradient;
   final Color textColor;
   final bool showArrow;
   final bool onTop;
@@ -80,6 +81,7 @@ class Showcase extends StatefulWidget {
     this.overlayOpacity = 0.75,
     this.titleTextStyle,
     this.descTextStyle,
+    this.showcaseBackgroundGradient,
     this.showcaseBackgroundColor = Colors.white,
     this.textColor = Colors.black,
     this.showArrow = true,
@@ -127,6 +129,7 @@ class Showcase extends StatefulWidget {
     this.titleTextStyle,
     this.descTextStyle,
     this.showcaseBackgroundColor = Colors.white,
+    this.showcaseBackgroundGradient,
     this.textColor = Colors.black,
     this.onTargetClick,
     this.disposeOnTap,
@@ -294,6 +297,7 @@ class _ShowcaseState extends State<Showcase> {
                 descTextStyle: widget.descTextStyle,
                 container: widget.container,
                 tooltipColor: widget.showcaseBackgroundColor,
+                tooltipGradient: widget.showcaseBackgroundGradient,
                 textColor: widget.textColor,
                 showArrow: widget.showArrow,
                 contentHeight: widget.height,

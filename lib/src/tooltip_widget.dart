@@ -37,6 +37,7 @@ class ToolTipWidget extends StatefulWidget {
   final TextStyle? descTextStyle;
   final Widget? container;
   final Color? tooltipColor;
+  final LinearGradient? tooltipGradient;
   final Color? textColor;
   final bool showArrow;
   final double? contentHeight;
@@ -59,6 +60,7 @@ class ToolTipWidget extends StatefulWidget {
     required this.descTextStyle,
     required this.container,
     required this.tooltipColor,
+    required this.tooltipGradient,
     required this.textColor,
     required this.showArrow,
     required this.contentHeight,
@@ -315,7 +317,10 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
                           child: Container(
                             width: _getTooltipWidth(),
                             padding: widget.contentPadding,
-                            color: widget.tooltipColor,
+                            decoration: BoxDecoration(
+                              color: widget.tooltipColor,
+                              gradient: widget.tooltipGradient,
+                            ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
