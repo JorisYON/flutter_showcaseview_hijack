@@ -104,7 +104,6 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
       return 'ABOVE';
     } else {
       return 'BELOW';
-
     }
   }
 
@@ -179,6 +178,10 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
     }
   }
 
+  double? _getArrowPosRatio(){
+    return _getLeft()!/_getTooltipWidth();
+  }
+
   double _getSpace() {
     var space = widget.position!.getCenter() - (widget.contentWidth! / 2);
     if (space + widget.contentWidth! > widget.screenSize!.width) {
@@ -188,7 +191,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
     }
     return space;
   }
-  
+
   int rebounds = 0;
 
   @override
@@ -294,7 +297,9 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
                             : null,
                         child: CustomPaint(
                           painter: _Arrow(
-                            strokeColor: widget.tooltipColor!,
+                            strokeColor: widget.tooltipGradient != null
+                                ? lerpGradient(_getArrowPosRatio()!)!
+                                : widget.tooltipColor!,
                             strokeWidth: 10,
                             paintingStyle: PaintingStyle.fill,
                             isUpArrow: isArrowUp,
@@ -426,6 +431,22 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
           ..layout())
         .size;
     return textPainter;
+  }
+
+  Color? lerpGradient(double t) {
+    for (var s = 0; s < widget.tooltipGradient!.stops!.length - 1; s++) {
+      final leftStop = widget.tooltipGradient!.stops![s],
+          rightStop = widget.tooltipGradient!.stops![s + 1];
+      final leftColor = widget.tooltipGradient!.colors![s],
+          rightColor = widget.tooltipGradient!.colors[s + 1];
+      if (t <= leftStop) {
+        return leftColor;
+      } else if (t < rightStop) {
+        final sectionT = (t - leftStop) / (rightStop - leftStop);
+        return Color.lerp(leftColor, rightColor, sectionT);
+      }
+    }
+    return widget.tooltipGradient!.colors.last;
   }
 }
 
